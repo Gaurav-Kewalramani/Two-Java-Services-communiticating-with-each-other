@@ -9,6 +9,6 @@ Create 2 java services and perform communication between each other. The functio
 * /user/{schoolId}/teachers :- to fetch teachers’ details for a school including school details
 * /user/{schoolId}/students :- to fetch students’ details for a school including school details
 
-	Follow the below points -
+	# Follow the below points -
 1) Use MongoDB
 2) Use Gradle as a build tool
