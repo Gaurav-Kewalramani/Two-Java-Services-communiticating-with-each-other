@@ -1,0 +1,141 @@
+swagger: "2.0"
+info:
+  description: "TSE server"
+  version: "1.0.0"
+  title: "TSE"
+  
+paths:
+  '/login':
+    post:
+      tags:
+        - Login 
+      summary: 'Get Token'
+      description: 'This endpoint provide token which is used for authentication'
+      operationId: Get token
+      produces:
+        - text/plain
+      parameters:
+         - in: body
+           description: Request Body
+           required: true
+           name: name
+           schema:
+             $ref: '#/definitions/TokenRequest' 
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/TokenResponse'
+        '401':
+          description: UNAUTHORIZED
+        '500':
+          description: INTERNAL SERVER ERROR                
+
+definitions: 
+    TokenRequest:
+        type: object
+        properties:
+          username:
+            type: string
+            description: username
+          password: 
+            type: string
+            description: password
+          deviceUniqueIdentifier: 
+            type: string
+            description: password  
+
+    SendOtpRequest:
+        type: object
+        properties:
+          username:
+            type: string
+            description: username
+          password: 
+            type: string
+            description: password            
+                   
+    TokenResponse:
+         type: object
+         properties:
+           headers:
+             type: object
+             description: headers
+           body: 
+             type: object
+             description: body
+           statusCode:
+             type: string
+             description:  statusCode
+           statusCodeValue: 
+             type: string
+             description:  statusCodeValue
+             
+    RegistrationRequest:
+        type: object
+        properties:
+          primaryEmail:
+            type: string
+            description: Primary email
+          isPrimaryEmailPersonal: 
+            type: string
+            description: isPrimaryEmailPersonal   
+          alternateEmail:
+            type: string
+            description: Alternate email
+          isAlternateEmailPersonal: 
+            type: string
+            description: isAlternateEmailPersonal  
+          givenName:
+            type: string
+            description: Given name
+          firstName: 
+            type: string
+            description: First name  
+          lastName:
+            type: string
+            description: Last name
+          middleName: 
+            type: string
+            description: Middle name  
+          locale:
+            type: string
+            description: locale
+          city: 
+            type: string
+            description: City 
+          highestEducation:
+            type: string
+            description: Highest education
+          secondHighestEducation: 
+            type: string
+            description: Second highest education        
+          gender: 
+            type: string
+            description: Gender 
+          ageRange: 
+            type: string
+            description: Age range 
+          deviceOs: 
+            type: string
+            description: Device OS
+          deviceOsVersion: 
+            type: string
+            description: Device OS version
+          deviceMake: 
+            type: string
+            description: Device make
+          deviceModel: 
+            type: string
+            description: Device model      
+          deviceUniqueIdentifier: 
+            type: string
+            description: Device unique identifier 
+          organizationName: 
+            type: string
+            description: Organization name 
+          otp: 
+            type: string
+            description: OTP           
+    RegistrationResponse:
+        type: string                                                                                                                                                                                                                                
